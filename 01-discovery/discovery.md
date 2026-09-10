@@ -58,12 +58,13 @@
 5. Whether booking will be manual or automated.
 
 ## 7. Candidate Requirements
- Functional Requirements:
+Functional Requirements:
 1. The system shall allow an authorised user to request equipment for a specified date and time.
 2. The system shall show whether equipment is available for a specified date and time.
 3. The system shall record equipment bookings and prevent double-booking.
 4. The system shall record when equipment is returned.
- Non-Functional Requirements:
+
+Non-Functional Requirements:
 1. The system shall protect user and booking information from unauthorised access.
 2. The system shall be reliable and available when users need to make or check bookings.
    

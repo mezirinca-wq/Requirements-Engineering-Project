@@ -8,4 +8,4 @@ Requirements Engineering
 Week 1 — Initial discovery
 ## Repository Purpose
 This repository contains my Requirements Engineering project work, including
-requirements, models, prototypes, validation evidence and project revisions
+requirements, models, prototypes, validation evidence and project revisions.

@@ -38,6 +38,11 @@ Interview
 
 
 Candidate requirements
+The system shall allow an authorised user to request equipment for a specified date and time
+The system shall show whether equipment is available for a specified date and time
+The system shall record equipment bookings and prevent double-booking
+The system shall record when equipment is returned
+
 
 
 

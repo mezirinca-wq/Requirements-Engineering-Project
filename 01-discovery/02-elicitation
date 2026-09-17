@@ -31,10 +31,15 @@ Who will maintain the equipment
 The technology that will be used
 
 
+
 Elicitation questions
+Should be the same bookings rools for students, teachers etc
+
+
 
 
 Interview
+
 
 
 Candidate requirements
@@ -42,7 +47,8 @@ The system shall allow an authorised user to request equipment for a specified d
 The system shall show whether equipment is available for a specified date and time
 The system shall record equipment bookings and prevent double-booking
 The system shall record when equipment is returned
-
+The system shall protect user and booking information from unauthorised access
+The system shall be reliable and available when users need to make or check bookings
 
 
 

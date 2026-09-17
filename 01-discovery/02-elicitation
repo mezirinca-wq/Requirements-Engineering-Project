@@ -53,6 +53,7 @@ The system shall record equipment bookings and prevent double-booking
 The system shall record when equipment is returned
 The system shall protect user and booking information from unauthorised access
 The system shall be reliable and available when users need to make or check bookings
+Make it clearer who is responsible for equipment
 
 
 

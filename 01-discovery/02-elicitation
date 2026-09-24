@@ -2,90 +2,88 @@
 
 ## 1. Stakeholders
 
-1. **Students** (Direct User)
-2. **Lecturers / Teaching Staff** (Direct User)
-3. **Equipment Technicians / Equipment Managers** (Direct User)
-4. **IT Support** (Direct User / Administrator)
-5. **Security Team** (Indirect Stakeholder)
-6. **College Management** (Sponsor / Indirect Stakeholder)
-7. **Equipment Suppliers** (External Stakeholder)
+Students (Direct User)
+Lecturers / Teaching Staff (Direct User)
+Equipment Technicians / Equipment Managers (Direct User)
+IT Support (Direct User / Administrator)
+Security Team (Indirect Stakeholder)
+College Management (Sponsor / Indirect Stakeholder)
+Equipment Suppliers (External Stakeholder)
 
 ---
 
 ## 2. Stakeholder Needs & Concerns
 
 | Stakeholder | Role / User Type | Possible Need | Possible Concern |
-| :--- | :--- | :--- | :--- |
-| **Student** | Direct User | Fast access to real-time equipment availability. | Being unable to get required equipment when needed for assignments. |
-| **Lecturer** | Direct User | Guaranteed availability of teaching equipment for scheduled classes. | Equipment not being available at the required time, disrupting lectures. |
-| **Equipment Technician** | Direct User | Clear visibility of items due out, returned, or overdue. | Equipment being returned late, damaged, or going missing without records. |
-| **Equipment Manager** | Direct User / Admin | Maintain full accountability and track asset usage. | Equipment being lost, stolen, or used without prior authorization. |
-| **IT Support** | Technical Maintainer | Clear access control rules, security measures, and system reliability. | System security breaches, unauthorized access, or high administrative overhead. |
+
+Student | Direct User | Fast access to real-time equipment availability. | Being unable to get required equipment when needed for assignments. |
+Lecturer | Direct User | Guaranteed availability of teaching equipment for scheduled classes. | Equipment not being available at the required time, disrupting lectures. |
+Equipment Technician | Direct User | Clear visibility of items due out, returned, or overdue. | Equipment being returned late, damaged, or going missing without records. |
+Equipment Manager | Direct User / Admin | Maintain full accountability and track asset usage. | Equipment being lost, stolen, or used without prior authorization. |
+IT Support | Technical Maintainer | Clear access control rules, security measures, and system reliability. | System security breaches, unauthorized access, or high administrative overhead. |
 
 ---
 
 ## 3. Unknowns & Information Sources
 
 | Unknown Question | Primary Information Source (Who can answer?) |
-| :--- | :--- |
-| Who is allowed to book specialist equipment? | **Equipment Manager** |
-| What happens when equipment is returned late? | **Equipment Technician** |
-| How does the current process handle double-bookings? | **Equipment Technician / Admin** |
-| What happens if an item is currently held or overdue by another user? | **Equipment Technician** |
-| What are the booking duration limits for different types of equipment? | **Equipment Manager / Department Head** |
-| Who is responsible for supplying, maintaining, and repairing equipment? | **College Management / Technicians** |
+
+Who is allowed to book specialist equipment? | Equipment Manage |
+What happens when equipment is returned late? | Equipment Technician |
+How does the current process handle double-bookings? | Equipment Technician / Admin |
+What happens if an item is currently held or overdue by another user? | Equipment Technician |
+What are the booking duration limits for different types of equipment? |Equipment Manager / Department Head |
+Who is responsible for supplying, maintaining, and repairing equipment? | College Management / Technicians |
 
 ---
 
 ## 4. Information Sources
 
 To resolve our remaining unknowns, we need to consult the following sources:
-* **Key Stakeholders:** Direct interviews and workshops with Technicians, Lecturers, Students, and IT Staff.
-* **Document Analysis:** Reviewing current paper logbooks, email booking records, department spreadsheets, and equipment usage policies.
-* **Technical Constraints Assessment:** Consulting IT Support regarding college authentication systems and hosting infrastructure.
+Key Stakeholders: Direct interviews and workshops with Technicians, Lecturers, Students, and IT Staff.
+Document Analysis: Reviewing current paper logbooks, email booking records, department spreadsheets, and equipment usage policies.
+Technical Constraints Assessment:** Consulting IT Support regarding college authentication systems and hosting infrastructure.
 
 ---
 
 ## 5. Elicitation Questions
 
-*(Note: These questions investigate current processes, exceptions, and constraints without dictating a pre-made software solution).*
-
-1. **Current Process & Rules:** How do booking rules and permissions currently differ between students, lecturers, and administrative staff?
-2. **Information Needed:** What specific user and personal information must be collected to process and track an equipment booking safely?
-3. **Exceptions & Overdue Handling:** What is the current procedure when a user requests an extension, or fails to return equipment on time?
-4. **Constraints & Policies:** What maximum booking duration limits currently exist for standard versus specialist equipment?
-5. **Dynamic Availability:** How are last-minute equipment changes (such as sudden damage, maintenance, or unreturned items) currently communicated to waiting users?
+1. Current Process & Rules: How do booking rules and permissions currently differ between students, lecturers, and administrative staff?
+2. Information Needed: What specific user and personal information must be collected to process and track an equipment booking safely?
+3. Exceptions & Overdue Handling: What is the current procedure when a user requests an extension, or fails to return equipment on time?
+4. Constraints & Policies: What maximum booking duration limits currently exist for standard versus specialist equipment?
+5. Dynamic Availability: How are last-minute equipment changes (such as sudden damage, maintenance, or unreturned items) currently communicated to waiting users?
 
 ---
 
-## 6. Mini Stakeholder Interview
+## 6. Interview
 
 * **Interviewer Role:** Requirements Engineer  
 * **Interviewee Role:** Equipment Technician  
 
 ### Interview Notes & Key Insights
-1. **Rule Differences:** Lecturers can reserve equipment up to a semester in advance, while students can only book up to 7 days in advance.
-2. **Late Returns Problem:** Late returns cause cascading delays for subsequent bookings. Technicians currently have to send manual follow-up emails, which is inefficient.
-3. **Specialist Approval:** High-value specialist equipment requires written or digital approval from a Module Leader before it can be handed over.
+1. Rule Differences: Lecturers can reserve equipment up to a semester in advance, while students can only book up to 7 days in advance.
+2. Late Returns Problem: Late returns cause cascading delays for subsequent bookings. Technicians currently have to send manual follow-up emails, which is inefficient.
+3. Specialist Approval: High-value specialist equipment requires written or digital approval from a Module Leader before it can be handed over.
 
 ### What We Still Don't Know
-* We still do not know if there is a automated fine or penalty system for late returns, or if late returns are handled through academic discipline.
+We still do not know if there is a automated fine or penalty system for late returns, or if late returns are handled through academic discipline.
 
 ---
 
 ## 7. Candidate Requirements
 
 ### Functional Requirements
-* **FR01:** The system shall allow an authorized user to request equipment for a specified date and time.
-* **FR02:** The system shall display real-time availability of equipment for a specified date and time range.
-* **FR03:** The system shall record equipment bookings and prevent double-booking of the same item.
-* **FR04:** The system shall record when equipment is checked out and returned by a technician.
-* **FR05:** The system shall flag and track overdue items and notify the responsible technician.
+The system shall allow an authorized user to request equipment for a specified date and time.
+The system shall display real-time availability of equipment for a specified date and time range.
+The system shall record equipment bookings and prevent double-booking of the same item.
+The system shall record when equipment is checked out and returned by a technician.
+The system shall flag and track overdue items and notify the responsible technician.
 
 ### Non-Functional Requirements
-* **NFR01:** The system shall restrict access to booking management features based on user roles (Student, Lecturer, Technician, Admin).
-* **NFR02:** The system shall protect user personal data and booking history from unauthorized access in compliance with data privacy policies.
-* **NFR03:** The system shall be available 99% of the time during operational college hours to allow checking and making bookings.
+The system shall restrict access to booking management features based on user roles (Student, Lecturer, Technician, Admin).
+The system shall protect user personal data and booking history from unauthorized access in compliance with data privacy policies.
+The system shall be available 99% of the time during operational college hours to allow checking and making bookings.
 
 
 

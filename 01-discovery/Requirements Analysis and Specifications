@@ -1,6 +1,13 @@
 # Week 3 - Requirements Analysis and Specification
 
-## 1. Information from Week2
+## 1. Information from Week 2
+
+People are sometimes unsure whether a camera is available
+Technicians need to know what equipment is due back
+The system shall record the expected return date for each booking
+The college should build a mobile app
+We assume all users will have a college logi
+A lecturer wants reliable availability information before promising equipmen
 
 
 

@@ -1,91 +1,76 @@
 # Week 3 — Requirements Analysis and Specification
 
 
+## 1. Inforamtion from week 2
 
 People are sometimes unsure whether a camera is available 
 Technicians need to know what equipment is due back 
 The system shall record the expected return date for each booking
-The college should build a mobile app 
 We assume all users will have a college login 
 A lecturer wants reliable availability information before promising equipment
 
----
 
-## 2. Candidate Requirements & Elicitation Review
 
-Information brought forward from Lab 2 elicitation:
-* **Source:** Equipment Technicians, Lecturers, and Students.
-* **Core Need:** Clear visibility of item availability to prevent double-bookings and manage returns efficiently.
-* **Key Constraint:** Access controls must enforce role differences between Students, Lecturers, and Technicians.
+## 2. Candidate Requirements 
 
----
+Source: Equipment Technicians, Lecturers, and Students
+Core Need: Clear visibility of item availability to prevent double-bookings and manage returns efficiently
+Key Constraint: Access controls must enforce role differences between Students, Lecturers, and Technicians
+
+
 
 ## 3. Requirements Surgery
 
-Diagnosing vague candidate requirements and repairing them into verifiable software requirements.
+The system shall be user-friendly
+  Problem: Extremely subjective and untestable. User-friendly has no clear technical meaning
+  Question: What specific task should users complete, and what is an acceptable time limit or interaction limit for a student
+  Missing Information: The target user group, specific task boundaries, and measurable usability metrics
+The system shall notify users about bookings
+  Problem: Unclear who gets notified, when the notification triggers, what event triggers it, and HOW email, SMS, or in-app
+  Question: Which booking events require notifications, and what communication channel should be used
+  Missing Information: Trigger conditions, notification delivery channel, recipient roles, and message timing
+The system shall allow staff to create, edit and delete bookings and send reminders
+  Problem: Bundles multiple distinct capabilities into a single compound requirement (mega-requirement), making independent testing difficult
+  Question: Which specific staff roles are authorized to perform each action, and under what conditions can an active booking be modified
+  Missing Information: Role separation (Lecturer vs. Technician), state conditions for deletion/editing, and rules for automated reminders
 
-### Requirement 1: *"The system shall be user-friendly."*
-* **Problem:** Extremely subjective and untestable. "User-friendly" has no clear technical meaning.
-* **Clarification Question:** What specific task should users complete, and what is an acceptable time limit or interaction limit for a student?
-* **Missing Information:** The target user group, specific task boundaries, and measurable usability metrics.
-* **Repaired Requirement:** *"The system shall enable an authenticated student to complete an equipment booking request in 3 or fewer screen interactions."*
 
-### Requirement 2: *"The system shall notify users about bookings."*
-* **Problem:** Unclear WHO gets notified, WHEN the notification triggers, WHAT event triggers it, and HOW (email, SMS, or in-app).
-* **Clarification Question:** Which booking events require notifications, and what communication channel should be used?
-* **Missing Information:** Trigger conditions, notification delivery channel, recipient roles, and message timing.
-* **Repaired Requirement:** *"The system shall send an automated email confirmation to the student within 60 seconds of a successful booking creation."*
-
-### Requirement 3: *"The system shall allow staff to create, edit and delete bookings and send reminders."*
-* **Problem:** Bundles multiple distinct capabilities into a single compound requirement ("mega-requirement"), making independent testing difficult.
-* **Clarification Question:** Which specific staff roles are authorized to perform each action, and under what conditions can an active booking be modified?
-* **Missing Information:** Role separation (Lecturer vs. Technician), state conditions for deletion/editing, and rules for automated reminders.
-* **Repaired Requirement (Atomic):** *"The system shall allow an authorized Technician to cancel an existing booking prior to the scheduled pick-up time."*
-
----
 
 ## 4. Functional Requirements
+                  
+The system shall allow an authorized user to view equipment availability for a selected date range. 
+The system shall prevent a user from completing a booking request if the selected equipment is already reserved for any part of that time slot
+The system shall record the exact date, time, and user ID when equipment is checked out and returned by a technician
 
-Applying the 5 Questions framework (**WHO? WHAT? WHEN? WHY? HOW WILL WE KNOW?**) to develop precise functional requirements.
 
-| ID | Requirement | Source / Rationale | Verification Method |
-| :--- | :--- | :--- | :--- |
-| **FR-01** | The system shall allow an authorized user to view equipment availability for a selected date range. | **Source:** Technician / Student need.<br>**Why:** To avoid booking conflicts. | **Test Case:** Search for an available item across specific dates and verify that returned availability matches database records. |
-| **FR-02** | The system shall prevent a user from completing a booking request if the selected equipment is already reserved for any part of that time slot. | **Source:** Equipment Manager.<br>**Why:** To eliminate double-bookings. | **Test Case:** Attempt to book an already reserved item for overlapping hours; confirm the system blocks the transaction and displays an error message. |
-| **FR-03** | The system shall record the exact date, time, and user ID when equipment is checked out and returned by a technician. | **Source:** Equipment Technician.<br>**Why:** To maintain accurate asset accountability and track overdue items. | **Test Case:** Perform a checkout and check-in operation; verify that audit logs correctly store timestamp and user ID. |
 
----
+## 5. Quality Requirements 
 
-## 5. Quality Requirements (Non-Functional Requirements)
+Quality Requirement: The system shall require users to log in with a password before making a booking
+Why it matters: Prevents unauthorized users from booking equipment or changing someone else's booking
+How could it be checked: Try booking equipment without logging in and verify that the system blocks access and prompts for login
 
-Quality constraints and operational performance requirements.
 
-| ID | Quality Requirement | Why It Matters | Verification Method |
-| :--- | :--- | :--- | :--- |
-| **NFR-01** | The system shall restrict equipment booking management and inventory modification features strictly to users authenticated with 'Technician' or 'Admin' role credentials. | Protects inventory data from unauthorized changes or accidental deletion by standard users. | **Security Testing:** Attempt to access administrative management endpoints using a standard 'Student' user account and verify access is denied (HTTP 403 Forbidden). |
 
----
+## 6. Project Application 
 
-## 6. Project Application (College Equipment System)
 
-Applying analysis steps to a specific candidate requirement for this booking system:
 
-* **Selected Candidate Requirement:** *"The system shall allow students to request an extension on their active equipment booking."*
-* **Step 1 — Source:** Student and Equipment Technician.
-* **Step 2 — Examination (Type & Clarity):** Functional requirement. Unclear if extensions are granted automatically or require technician approval.
-* **Step 3 — Clarification Question:** Can a student extend a booking if another user has already reserved that equipment for the next time slot?
-* **Step 4 — Verification:** Request an extension on an item with no upcoming bookings (verify success), then request an extension on an item with an upcoming booking (verify rejection).
-* **Step 5 — Remaining Unknown:** What is the maximum number of times a student can extend a single booking? *(To be provided by Equipment Manager).*
 
----
 
 ## 7. Reflection
 
-1. **What makes a requirement difficult to understand?**
-   Ambiguous terminology (e.g., "fast", "user-friendly", "efficient"), missing triggers or preconditions, compound scope combining too many actions, and solution-bias (describing software implementation rather than user/system behavior).
 
-2. **What information do you still need for your project?**
-   Clear rules regarding late return penalties, specialist equipment approval workflows, and maximum allowed booking durations for different user roles.
 
-3. **Who could provide that information?**
-   The Equipment Manager, Equipment Technicians, and Department Heads.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,1 +1,55 @@
+# Week 4 — Requirements Modelling: Use Case Diagram
 
+
+## 1. Requirement Used
+The system shall allow an authorised user to view equipment availability for a selected date
+The system shall allow students and lecturers to create an equipment booking for an available time slot
+
+
+## 2. Requirement Analysis (Requirement -> Actor -> Goal -> Use Case)
+
+
+### Analysis of FR-1
+1. Goal: View equipment availability for a selected date to avoid double-booking
+2. Use Case Name: View Equipment Availability
+3. Actor Check: The requirement states authorised user. Is the exact role established? Not fully — it is ambiguous whether this applies to Students, Lecturers, or Technicians
+4. Clarification Question: Which specific roles have permission to view equipment availability, and do Students see the same detail as Equipment Technicians
+
+
+### Analysis of FR-2
+1. Goal: Reserve specialized college equipment for academic use
+2. Use Case Name: Create Booking
+3. Actor Check: Student / Lecturer
+4. Clarification Question: Are Student bookings subject to approval by a Lecturer or Equipment Technician before confirmation?
+
+
+## 3. Actors
+Student (Primary Actor): An external user who views availability and creates equipment bookings
+Lecturer (Primary Actor): An external user who views availability and creates bookings for class equipment
+Equipment Technician (Primary Actor): An external user responsible for managing inventory and recording returns
+
+
+## 4. Use Cases 
+View Equipment Availability
+Create Booking
+Record Equipment Return
+
+
+## 5. Answers to Part 7: Modelling Problems Analysis
+Example.  What is wrong? Corrective Action 
+Database drawn as an actor. A database is an internal technical component, not an external user or external system.  Remove Database; actors must be external entities e.g., Student, Technician. 
+Booking Screen drawn as a use case. A screen is a User Interface element, not a functional goal or behavior. Rename to a verb-goal phrase like Create Booking
+Student placed inside boundary. An actor represents an external entity interacting with the system, so it must stay outside. Move `Student` actor outside the system boundary box
+Do Stuff used as a use case name. Too vague; does not describe a clear, meaningful user goal. Use specific action verbs, e.g., View Equipment Availabilit
+Every stakeholder added as an actor. Not all stakeholders directly interact with the software e.g., College Principal. Include only stakeholders who directly trigger or receive output from use cases
+
+
+## 6. Unknowns / Questions Raised by the Model
+1. Approval Workflow: Does Create Booking automatically confirm the reservation, or does an `Equipment Technician` need to approve it first
+2. Return Validation:** When Record Equipment Return is performed, does the system check for damaged or late equipment, and who is notified
+
+
+
+## 7. Reflection
+What the diagram helped understand: It clearly defined the system boundary for the *College Equipment Booking System and showed exactly which external roles (Student, Technician) interact with core system functions
+Uncertainty revealed: It highlighted ambiguity around permissions — specifically, whether authorised user means students and staff have identical booking rights or if role-based restrictions apply

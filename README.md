@@ -5,7 +5,8 @@ Name: Iryna Liapkalo
 ## Module: 
 Requirements Engineering
 ## Project Status
-Week 1 — Initial discovery
+Week 4
+— Initial discovery
 ## Repository Purpose
 This repository contains my Requirements Engineering project work, including
 requirements, models, prototypes, validation evidence and project revisions.
